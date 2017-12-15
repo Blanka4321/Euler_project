@@ -1,0 +1,97 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class FullCountingSort {
+
+    public static void main(String[] args) {
+
+      StringBuilder[] data = new StringBuilder[101]; // store indexes from 0 to 100
+      Scanner input = new Scanner(System.in);
+      int n = input.nextInt();
+      int first_half = n/2;
+
+      // Original list
+
+      for (int i = 0; i < n; i++) {
+
+          int index = input.nextInt();
+
+          // encode the first half of the data
+
+          if(first_half > 0){
+
+              if(data[index] == null){
+
+                  data[index] = new StringBuilder("- ");
+
+
+              } else {
+
+                  data[index].append("- ");
+
+              }
+
+              first_half--;
+
+          }  else {
+
+
+              if(data[index] == null){
+
+                  data[index] = new StringBuilder(input.next() + " ");
+
+              } else {
+
+                  data[index].append(input.next() + " ");
+
+              }
+
+
+          }
+
+         if(input.hasNextLine()){ 
+            
+             input.nextLine();
+             
+         }
+      }
+
+      print(data);
+
+  }
+
+  public static void print(StringBuilder[] str){
+
+      //System.out.println();
+      StringBuilder temp = null;
+
+      for(int i = 0; i < 101; i++){
+
+          if(str[i] == null)
+              continue;
+
+          String[] st = str[i].toString().split(" ");
+
+          for(int j = 0; j < st.length; j++){
+
+
+              if(temp == null){
+
+                  temp = new StringBuilder(st[j]);
+
+              } else {
+
+                  temp.append(" " + st[j]);
+              }
+
+          }
+
+      }
+
+      System.out.println(temp.toString().trim());
+
+  }
+}
