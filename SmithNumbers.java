@@ -28,7 +28,10 @@ public class SmithNumbers {
 
 
     }
-
+   
+    
+    // this function sums the digits in the given number 'num'
+    
     public static int digitSum(int num){
 
         int tmp = num;
@@ -51,7 +54,10 @@ public class SmithNumbers {
         return total;
 
     }
-
+    
+    // express all the factors of the given number 'num' as a product of it's prime, return the result in the
+    // ArrayList<Integer> 
+    
     public static ArrayList<Integer> primeFactorSums(int num){
 
         ArrayList<Integer> factors = new ArrayList<Integer>();
@@ -61,13 +67,11 @@ public class SmithNumbers {
             factors.add(tmp);
             return factors;
         }
-
+        
         while(tmp%2 == 0){
             factors.add(2);
             tmp/= 2;
         }
-
-
 
         for(int i = 3; i < Math.sqrt(num); i+=2){
 
